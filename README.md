@@ -8,7 +8,7 @@ Incluye introducción en viñetas, 3 niveles, música y efectos de sonido.
 
 **Jugar en línea:** https://rescatesalvaje.vercel.app (computador con teclado)
 
-En la versión web, los resultados se guardan en el navegador de cada equipo. Para recogerlos, pulsa F2 en el
+En la versión web, los resultados se guardan en el navegador de cada equipo. Para recogerlos, pulsa R (o F2) en el
 título y luego E para descargar `resultados.csv`.
 
 ## Cómo publicar cambios en la web
