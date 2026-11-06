@@ -1,0 +1,306 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/World/encuesta.gd" id="1_hy43n"]
+[ext_resource type="Texture2D" path="res://Assets/ui.png" id="2_t52c4"]
+[ext_resource type="Shader" path="res://Assets/Shaders/fondo_titulo.gdshader" id="3_f7d3c"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/SilvestrePixel-Bold.ttf" id="4_k3wyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p20b"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8elx2"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6nsr1"]
+shader = ExtResource("3_f7d3c")
+shader_parameter/color_arriba = null
+shader_parameter/color_abajo = null
+shader_parameter/color_luz = null
+shader_parameter/velocidad = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rm22l"]
+bg_color = Color(0.95686275, 0.9254902, 0.8156863, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oar7w"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmka1"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seywe"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0sy1"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pywbp"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vpae"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c76np"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpmv7"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgyox"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21c2j"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfhsd"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8wqn"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66dbd"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cae87"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e83qv"]
+atlas = ExtResource("2_t52c4")
+region = Rect2(32, 0, 16, 16)
+
+[node name="Encuesta" type="Control" unique_id=1072827476]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 240.0
+script = ExtResource("1_hy43n")
+textura_estrella = SubResource("AtlasTexture_7p20b")
+textura_estrella_vacia = SubResource("AtlasTexture_8elx2")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=262165447]
+material = SubResource("ShaderMaterial_6nsr1")
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+
+[node name="Panel" type="Panel" parent="." unique_id=1692865341]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 296.0
+offset_bottom = 218.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rm22l")
+
+[node name="Cabecera" type="ColorRect" parent="Panel" unique_id=325659195]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 270.0
+offset_bottom = 18.0
+color = Color(0.22745098, 0.5411765, 0.17254902, 1)
+
+[node name="Titulo" type="Label" parent="Panel/Cabecera" unique_id=1114422504]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 268.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("4_k3wyo")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "¿QUÉ TE PARECIÓ EL JUEGO?"
+horizontal_alignment = 1
+
+[node name="Filas" type="VBoxContainer" parent="Panel" unique_id=836245383]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 26.0
+offset_right = 258.0
+offset_bottom = 134.0
+theme_override_constants/separation = 6
+
+[node name="Fila1" type="VBoxContainer" parent="Panel/Filas" unique_id=363286938]
+layout_mode = 2
+theme_override_constants/separation = 1
+metadata/texto = "El juego fue fácil de usar"
+
+[node name="Texto" type="Label" parent="Panel/Filas/Fila1" unique_id=671025888]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "El juego fue fácil de usar"
+
+[node name="Estrellas" type="HBoxContainer" parent="Panel/Filas/Fila1" unique_id=1167313981]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Estrella1" type="TextureRect" parent="Panel/Filas/Fila1/Estrellas" unique_id=1408083759]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_oar7w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella2" type="TextureRect" parent="Panel/Filas/Fila1/Estrellas" unique_id=2078419781]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_rmka1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella3" type="TextureRect" parent="Panel/Filas/Fila1/Estrellas" unique_id=1558361869]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_seywe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella4" type="TextureRect" parent="Panel/Filas/Fila1/Estrellas" unique_id=1863581499]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_y0sy1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella5" type="TextureRect" parent="Panel/Filas/Fila1/Estrellas" unique_id=1097608267]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_pywbp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Fila2" type="VBoxContainer" parent="Panel/Filas" unique_id=1946523064]
+layout_mode = 2
+theme_override_constants/separation = 1
+metadata/texto = "Me divertí jugando"
+
+[node name="Texto" type="Label" parent="Panel/Filas/Fila2" unique_id=1225703507]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Me divertí jugando"
+
+[node name="Estrellas" type="HBoxContainer" parent="Panel/Filas/Fila2" unique_id=1184526635]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Estrella1" type="TextureRect" parent="Panel/Filas/Fila2/Estrellas" unique_id=703178184]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_7vpae")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella2" type="TextureRect" parent="Panel/Filas/Fila2/Estrellas" unique_id=741557747]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_c76np")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella3" type="TextureRect" parent="Panel/Filas/Fila2/Estrellas" unique_id=1734034081]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_jpmv7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella4" type="TextureRect" parent="Panel/Filas/Fila2/Estrellas" unique_id=123486848]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_lgyox")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella5" type="TextureRect" parent="Panel/Filas/Fila2/Estrellas" unique_id=1143264939]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_21c2j")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Fila3" type="VBoxContainer" parent="Panel/Filas" unique_id=907142266]
+layout_mode = 2
+theme_override_constants/separation = 1
+metadata/texto = "Aprendí algo nuevo"
+
+[node name="Texto" type="Label" parent="Panel/Filas/Fila3" unique_id=385614423]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Aprendí algo nuevo"
+
+[node name="Estrellas" type="HBoxContainer" parent="Panel/Filas/Fila3" unique_id=865280807]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Estrella1" type="TextureRect" parent="Panel/Filas/Fila3/Estrellas" unique_id=1214283879]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_lfhsd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella2" type="TextureRect" parent="Panel/Filas/Fila3/Estrellas" unique_id=1225323845]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_m8wqn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella3" type="TextureRect" parent="Panel/Filas/Fila3/Estrellas" unique_id=587012869]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_66dbd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella4" type="TextureRect" parent="Panel/Filas/Fila3/Estrellas" unique_id=462657378]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_cae87")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella5" type="TextureRect" parent="Panel/Filas/Fila3/Estrellas" unique_id=631025567]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_e83qv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Mensaje" type="Label" parent="Panel" unique_id=1306511717]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 140.0
+offset_right = 258.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0.22745098, 0.5411765, 0.17254902, 1)
+text = "Mensaje"
+autowrap_mode = 3
+
+[node name="Pie" type="Label" parent="Panel" unique_id=1300859832]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 172.0
+offset_right = 264.0
+offset_bottom = 195.0
+theme_override_colors/font_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+text = "Pie"
+horizontal_alignment = 1
+autowrap_mode = 3

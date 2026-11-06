@@ -1,0 +1,57 @@
+[gd_resource type="TileSet" format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/tiles.png" id="1_eirx2"]
+[ext_resource type="Shader" path="res://Assets/Shaders/agua.gdshader" id="1_ihwer"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ji7b5"]
+shader = ExtResource("1_ihwer")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihwer"]
+texture = ExtResource("1_eirx2")
+0:0/0 = 0
+0:0/0/custom_data_0 = "pasto"
+1:0/0 = 0
+1:0/0/custom_data_0 = "pasto_claro"
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/custom_data_0 = "arbol"
+3:0/0 = 0
+3:0/0/custom_data_0 = "camino"
+4:0/0 = 0
+4:0/0/custom_data_0 = "paramo"
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/custom_data_0 = "frailejon"
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0/custom_data_0 = "roca"
+7:0/0 = 0
+7:0/0/custom_data_0 = "campamento"
+8:0/0 = 0
+8:0/0/custom_data_0 = "arena"
+9:0/0 = 0
+9:0/0/material = SubResource("ShaderMaterial_ji7b5")
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0/custom_data_0 = "agua"
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:0/0/custom_data_0 = "caja"
+11:0/0 = 0
+11:0/0/custom_data_0 = "sabana"
+12:0/0 = 0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:0/0/custom_data_0 = "palma"
+13:0/0 = 0
+13:0/0/custom_data_0 = "puente"
+14:0/0 = 0
+14:0/0/custom_data_0 = "hojarasca"
+15:0/0 = 0
+15:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:0/0/custom_data_0 = "ceiba"
+
+[resource]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
+custom_data_layer_0/name = "tipo"
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_ihwer")

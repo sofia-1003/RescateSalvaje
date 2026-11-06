@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Objetos/animal.gd" id="1_y7044"]
+[ext_resource type="Texture2D" path="res://Assets/animales.png" id="2_lk0x5"]
+[ext_resource type="Shader" path="res://Assets/Shaders/disolver.gdshader" id="2_sxbbo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmtt7"]
+shader = ExtResource("2_sxbbo")
+shader_parameter/progreso = null
+shader_parameter/color_borde = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxbbo"]
+atlas = ExtResource("2_lk0x5")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Animal" type="Node2D" unique_id=1615316898]
+script = ExtResource("1_y7044")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1444463555]
+material = SubResource("ShaderMaterial_gmtt7")
+texture = SubResource("AtlasTexture_sxbbo")

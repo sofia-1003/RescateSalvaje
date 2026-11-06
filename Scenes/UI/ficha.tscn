@@ -1,0 +1,130 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/ficha.gd" id="1_g4re3"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/SilvestrePixel-Bold.ttf" id="2_ek0vd"]
+[ext_resource type="Texture2D" path="res://Assets/animales.png" id="2_pm1no"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ek0vd"]
+bg_color = Color(0.95686275, 0.9254902, 0.8156863, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7xpi"]
+bg_color = Color(0.72156864, 0.6666667, 0.34509805, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcme1"]
+atlas = ExtResource("2_pm1no")
+region = Rect2(16, 0, 16, 16)
+
+[node name="Ficha" type="CanvasLayer" unique_id=9375367]
+process_mode = 3
+layer = 20
+script = ExtResource("1_g4re3")
+
+[node name="Sombra" type="ColorRect" parent="." unique_id=1027314299]
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="Panel" type="Panel" parent="." unique_id=583432475]
+offset_left = 70.0
+offset_top = 36.0
+offset_right = 250.0
+offset_bottom = 234.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ek0vd")
+
+[node name="Cabecera" type="ColorRect" parent="Panel" unique_id=1005821656]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 177.0
+offset_bottom = 21.0
+color = Color(0.22745098, 0.5411765, 0.17254902, 1)
+
+[node name="Titulo" type="Label" parent="Panel/Cabecera" unique_id=1131120515]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 187.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_ek0vd")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "¡FICHA DESBLOQUEADA!"
+horizontal_alignment = 1
+
+[node name="Marco" type="Panel" parent="Panel" unique_id=1254432510]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 26.0
+offset_right = 118.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g7xpi")
+
+[node name="Imagen" type="TextureRect" parent="Panel/Marco" unique_id=1608340667]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 48.0
+offset_bottom = 44.0
+texture = SubResource("AtlasTexture_kcme1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Nombre" type="Label" parent="Panel" unique_id=709698442]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 180.0
+offset_bottom = 99.0
+theme_override_fonts/font = ExtResource("2_ek0vd")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "OSO DE ANTEOJOS"
+horizontal_alignment = 1
+
+[node name="Contenido" type="VBoxContainer" parent="Panel" unique_id=1240893106]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 94.0
+offset_right = 170.0
+offset_bottom = 174.0
+theme_override_constants/separation = 3
+
+[node name="Habitat" type="Label" parent="Panel/Contenido" unique_id=142869290]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Hábitat:"
+autowrap_mode = 3
+
+[node name="Dato" type="Label" parent="Panel/Contenido" unique_id=24980838]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Dato:"
+autowrap_mode = 3
+
+[node name="Estado" type="Label" parent="Panel/Contenido" unique_id=823516143]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.6901961, 0.1882353, 0.1254902, 1)
+text = "Estado:"
+autowrap_mode = 3
+
+[node name="Pie" type="Label" parent="Panel" unique_id=1486435326]
+layout_mode = 0
+offset_top = 180.0
+offset_right = 180.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+text = "[ENTER] continuar"
+horizontal_alignment = 1

@@ -1,0 +1,183 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/World/resultados.gd" id="1_mcmyx"]
+[ext_resource type="Texture2D" path="res://Assets/ui.png" id="2_kltlm"]
+[ext_resource type="Shader" path="res://Assets/Shaders/fondo_titulo.gdshader" id="3_kltlm"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/SilvestrePixel-Bold.ttf" id="4_xa7d8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa7d8"]
+atlas = ExtResource("2_kltlm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrlvc"]
+atlas = ExtResource("2_kltlm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xa7d8"]
+shader = ExtResource("3_kltlm")
+shader_parameter/color_arriba = null
+shader_parameter/color_abajo = null
+shader_parameter/color_luz = null
+shader_parameter/velocidad = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7r6ol"]
+bg_color = Color(0.95686275, 0.9254902, 0.8156863, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c28d3"]
+atlas = ExtResource("2_kltlm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axy42"]
+atlas = ExtResource("2_kltlm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ardei"]
+atlas = ExtResource("2_kltlm")
+region = Rect2(32, 0, 16, 16)
+
+[node name="Resultados" type="Control" unique_id=901957658]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 240.0
+script = ExtResource("1_mcmyx")
+textura_estrella = SubResource("AtlasTexture_xa7d8")
+textura_estrella_vacia = SubResource("AtlasTexture_rrlvc")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1486766251]
+material = SubResource("ShaderMaterial_xa7d8")
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0.05490196, 0.16470589, 0.078431375, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=1723232607]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 16.0
+offset_right = 284.0
+offset_bottom = 228.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7r6ol")
+
+[node name="Cabecera" type="ColorRect" parent="Panel" unique_id=865758194]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 245.0
+offset_bottom = 21.0
+color = Color(0.22745098, 0.5411765, 0.17254902, 1)
+
+[node name="Titulo" type="Label" parent="Panel/Cabecera" unique_id=40284339]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 242.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("4_xa7d8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "¡MISIÓN CUMPLIDA!"
+horizontal_alignment = 1
+
+[node name="Estrellas" type="HBoxContainer" parent="Panel" unique_id=179605289]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 27.0
+offset_right = 170.0
+offset_bottom = 55.0
+theme_override_constants/separation = 4
+
+[node name="Estrella1" type="TextureRect" parent="Panel/Estrellas" unique_id=920948183]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = SubResource("AtlasTexture_c28d3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella2" type="TextureRect" parent="Panel/Estrellas" unique_id=558110015]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = SubResource("AtlasTexture_axy42")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Estrella3" type="TextureRect" parent="Panel/Estrellas" unique_id=2075100258]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ardei")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Datos" type="VBoxContainer" parent="Panel" unique_id=859311569]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 62.0
+offset_right = 232.0
+offset_bottom = 118.0
+theme_override_constants/separation = 2
+
+[node name="LabelRescatados" type="Label" parent="Panel/Datos" unique_id=154574349]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "LabelRescatados"
+autowrap_mode = 3
+
+[node name="LabelPrimerIntento" type="Label" parent="Panel/Datos" unique_id=448931395]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "LabelPrimerIntento"
+autowrap_mode = 3
+
+[node name="LabelPregunta" type="Label" parent="Panel/Datos" unique_id=1145426089]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "LabelPregunta"
+autowrap_mode = 3
+
+[node name="CajaAprendiste" type="ColorRect" parent="Panel" unique_id=292105351]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 124.0
+offset_right = 236.0
+offset_bottom = 188.0
+color = Color(0.89411765, 0.84705883, 0.6901961, 1)
+
+[node name="Margen" type="VBoxContainer" parent="Panel/CajaAprendiste" unique_id=836574780]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 218.0
+offset_bottom = 61.0
+theme_override_constants/separation = 1
+
+[node name="LabelAprendiste" type="Label" parent="Panel/CajaAprendiste/Margen" unique_id=1549775869]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_xa7d8")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.22745098, 0.5411765, 0.17254902, 1)
+text = "APRENDISTE:"
+autowrap_mode = 3
+
+[node name="TextoAprendiste" type="Label" parent="Panel/CajaAprendiste/Margen" unique_id=1232373258]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Cada especie necesita su propio hábitat. Los animales silvestres no son mascotas: si ves tráfico de fauna, denúncialo."
+autowrap_mode = 3
+
+[node name="Pie" type="Label" parent="Panel" unique_id=9094310]
+layout_mode = 0
+offset_top = 194.0
+offset_right = 248.0
+offset_bottom = 217.0
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+text = "[ENTER] volver al inicio"
+horizontal_alignment = 1

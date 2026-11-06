@@ -1,0 +1,256 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://Scripts/World/juego.gd" id="1_u48d5"]
+[ext_resource type="TileSet" path="res://Assets/tileset.tres" id="2_dpomy"]
+[ext_resource type="Script" path="res://Scripts/World/zona_habitat.gd" id="3_w52fa"]
+[ext_resource type="PackedScene" path="res://Scenes/Objetos/jaula.tscn" id="4_yf0td"]
+[ext_resource type="Script" path="res://Scripts/Objetos/jaula.gd" id="5_b4s4t"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/traficante.tscn" id="6_a7wlj"]
+[ext_resource type="Script" path="res://Scripts/Enemies/traficante.gd" id="7_474oh"]
+[ext_resource type="PackedScene" path="res://Scenes/Player/player.tscn" id="8_ybwn3"]
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="9_iuer1"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/hud.tscn" id="10_0mbcs"]
+[ext_resource type="Script" path="res://Scripts/UI/hud.gd" id="11_8etow"]
+[ext_resource type="Texture2D" path="res://Assets/ui.png" id="12_kxqvv"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/ficha.tscn" id="13_ct4s2"]
+[ext_resource type="Script" path="res://Scripts/UI/ficha.gd" id="14_dmejq"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/guia.tscn" id="15_t1jn2"]
+[ext_resource type="Script" path="res://Scripts/UI/guia.gd" id="16_4wka0"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/pregunta_final.tscn" id="17_2xx56"]
+[ext_resource type="Script" path="res://Scripts/UI/pregunta_final.gd" id="18_naoa8"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/derrota.tscn" id="19_m7yju"]
+[ext_resource type="Script" path="res://Scripts/UI/derrota.gd" id="20_c5t4c"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/pausa.tscn" id="21_w52fa"]
+[ext_resource type="Script" path="res://Scripts/UI/pausa.gd" id="22_yf0td"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbrj6"]
+bg_color = Color(0, 0, 0, 0.55)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43gs4"]
+bg_color = Color(0, 0, 0, 0.55)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnoi1"]
+bg_color = Color(0, 0, 0, 0.55)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mxnl"]
+bg_color = Color(0, 0, 0, 0.55)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7gjn"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybly2"]
+size = Vector2(80, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0d27"]
+size = Vector2(96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8glcj"]
+atlas = ExtResource("12_kxqvv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsu76"]
+atlas = ExtResource("12_kxqvv")
+region = Rect2(16, 0, 16, 16)
+
+[node name="Nivel3" type="Node2D" unique_id=979033290]
+script = ExtResource("1_u48d5")
+nivel = 3
+musica = "musica_noche"
+de_noche = true
+mensaje_inicio = "NIVEL 3: LA AMAZONÍA DE NOCHE. Los traficantes llevan linterna: su luz marca lo que ven. Rescata al delfín rosado, la charapa y el mono churuco."
+
+[node name="Noche" type="CanvasModulate" parent="." unique_id=2027960778]
+color = Color(0.3, 0.33, 0.55, 1)
+
+[node name="Mundo" type="Node2D" parent="." unique_id=49454178]
+position = Vector2(0, 32)
+
+[node name="Suelo" type="TileMapLayer" parent="Mundo" unique_id=1810005901]
+tile_map_data = PackedByteArray("AAAAAAAAAAAPAAAAAAABAAAAAAAPAAAAAAACAAAAAAAPAAAAAAADAAAAAAAPAAAAAAAEAAAAAAAPAAAAAAAFAAAAAAAPAAAAAAAGAAAAAAAPAAAAAAAHAAAAAAAPAAAAAAAIAAAAAAAPAAAAAAAJAAAAAAAPAAAAAAAKAAAAAAAPAAAAAAALAAAAAAAPAAAAAAAMAAAAAAAPAAAAAAANAAAAAAAPAAAAAAAOAAAAAAAPAAAAAAAPAAAAAAAPAAAAAAAQAAAAAAAPAAAAAAARAAAAAAAPAAAAAAASAAAAAAAPAAAAAAATAAAAAAAPAAAAAAAAAAEAAAAPAAAAAAABAAEAAAAOAAAAAAACAAEAAAAOAAAAAAADAAEAAAAPAAAAAAAEAAEAAAAOAAAAAAAFAAEAAAAOAAAAAAAGAAEAAAAOAAAAAAAHAAEAAAAOAAAAAAAIAAEAAAAPAAAAAAAJAAEAAAAOAAAAAAAKAAEAAAAOAAAAAAALAAEAAAADAAAAAAAMAAEAAAAHAAAAAAANAAEAAAAHAAAAAAAOAAEAAAAHAAAAAAAPAAEAAAAHAAAAAAAQAAEAAAAHAAAAAAARAAEAAAAHAAAAAAASAAEAAAAPAAAAAAATAAEAAAAPAAAAAAAAAAIAAAAPAAAAAAABAAIAAAAOAAAAAAACAAIAAAAOAAAAAAADAAIAAAAOAAAAAAAEAAIAAAAOAAAAAAAFAAIAAAAPAAAAAAAGAAIAAAAOAAAAAAAHAAIAAAAOAAAAAAAIAAIAAAAOAAAAAAAJAAIAAAAOAAAAAAAKAAIAAAAOAAAAAAALAAIAAAADAAAAAAAMAAIAAAAHAAAAAAANAAIAAAAHAAAAAAAOAAIAAAAHAAAAAAAPAAIAAAAHAAAAAAAQAAIAAAAHAAAAAAARAAIAAAAHAAAAAAASAAIAAAAPAAAAAAATAAIAAAAPAAAAAAAAAAMAAAAPAAAAAAABAAMAAAAOAAAAAAACAAMAAAAPAAAAAAADAAMAAAAOAAAAAAAEAAMAAAAOAAAAAAAFAAMAAAAOAAAAAAAGAAMAAAAOAAAAAAAHAAMAAAAPAAAAAAAIAAMAAAAOAAAAAAAJAAMAAAAOAAAAAAAKAAMAAAAOAAAAAAALAAMAAAADAAAAAAAMAAMAAAAHAAAAAAANAAMAAAAHAAAAAAAOAAMAAAAHAAAAAAAPAAMAAAAHAAAAAAAQAAMAAAAHAAAAAAARAAMAAAAHAAAAAAASAAMAAAAPAAAAAAATAAMAAAAPAAAAAAAAAAQAAAAPAAAAAAABAAQAAAAOAAAAAAACAAQAAAAOAAAAAAADAAQAAAAOAAAAAAAEAAQAAAAOAAAAAAAFAAQAAAAOAAAAAAAGAAQAAAAOAAAAAAAHAAQAAAAOAAAAAAAIAAQAAAAOAAAAAAAJAAQAAAAOAAAAAAAKAAQAAAADAAAAAAALAAQAAAADAAAAAAAMAAQAAAADAAAAAAANAAQAAAADAAAAAAAOAAQAAAADAAAAAAAPAAQAAAAOAAAAAAAQAAQAAAAOAAAAAAARAAQAAAAOAAAAAAASAAQAAAAOAAAAAAATAAQAAAAPAAAAAAAAAAUAAAAPAAAAAAABAAUAAAAOAAAAAAACAAUAAAAIAAAAAAADAAUAAAAIAAAAAAAEAAUAAAAIAAAAAAAFAAUAAAAIAAAAAAAGAAUAAAAIAAAAAAAHAAUAAAAIAAAAAAAIAAUAAAAIAAAAAAAJAAUAAAAIAAAAAAAKAAUAAAADAAAAAAALAAUAAAAIAAAAAAAMAAUAAAAIAAAAAAANAAUAAAAIAAAAAAAOAAUAAAAIAAAAAAAPAAUAAAAIAAAAAAAQAAUAAAAIAAAAAAARAAUAAAAOAAAAAAASAAUAAAAOAAAAAAATAAUAAAAPAAAAAAAAAAYAAAAJAAAAAAABAAYAAAAJAAAAAAACAAYAAAAJAAAAAAADAAYAAAAJAAAAAAAEAAYAAAAJAAAAAAAFAAYAAAANAAAAAAAGAAYAAAAJAAAAAAAHAAYAAAAJAAAAAAAIAAYAAAAJAAAAAAAJAAYAAAAJAAAAAAAKAAYAAAANAAAAAAALAAYAAAAJAAAAAAAMAAYAAAAJAAAAAAANAAYAAAAJAAAAAAAOAAYAAAAJAAAAAAAPAAYAAAAJAAAAAAAQAAYAAAAJAAAAAAARAAYAAAAJAAAAAAASAAYAAAAJAAAAAAATAAYAAAAJAAAAAAAAAAcAAAAJAAAAAAABAAcAAAAJAAAAAAACAAcAAAAJAAAAAAADAAcAAAAJAAAAAAAEAAcAAAAJAAAAAAAFAAcAAAAJAAAAAAAGAAcAAAAJAAAAAAAHAAcAAAAJAAAAAAAIAAcAAAAJAAAAAAAJAAcAAAAJAAAAAAAKAAcAAAANAAAAAAALAAcAAAAJAAAAAAAMAAcAAAAJAAAAAAANAAcAAAAJAAAAAAAOAAcAAAAJAAAAAAAPAAcAAAAJAAAAAAAQAAcAAAAJAAAAAAARAAcAAAAJAAAAAAASAAcAAAAJAAAAAAATAAcAAAAJAAAAAAAAAAgAAAAPAAAAAAABAAgAAAAIAAAAAAACAAgAAAAIAAAAAAADAAgAAAAIAAAAAAAEAAgAAAAIAAAAAAAFAAgAAAAIAAAAAAAGAAgAAAAIAAAAAAAHAAgAAAAIAAAAAAAIAAgAAAAIAAAAAAAJAAgAAAAIAAAAAAAKAAgAAAADAAAAAAALAAgAAAAIAAAAAAAMAAgAAAAIAAAAAAANAAgAAAAIAAAAAAAOAAgAAAAIAAAAAAAPAAgAAAAIAAAAAAAQAAgAAAAIAAAAAAARAAgAAAAIAAAAAAASAAgAAAAIAAAAAAATAAgAAAAPAAAAAAAAAAkAAAAPAAAAAAABAAkAAAAOAAAAAAACAAkAAAAOAAAAAAADAAkAAAAOAAAAAAAEAAkAAAAOAAAAAAAFAAkAAAAOAAAAAAAGAAkAAAAOAAAAAAAHAAkAAAAOAAAAAAAIAAkAAAAOAAAAAAAJAAkAAAAOAAAAAAAKAAkAAAADAAAAAAALAAkAAAAOAAAAAAAMAAkAAAAIAAAAAAANAAkAAAAIAAAAAAAOAAkAAAAIAAAAAAAPAAkAAAAIAAAAAAAQAAkAAAAIAAAAAAARAAkAAAAIAAAAAAASAAkAAAAOAAAAAAATAAkAAAAPAAAAAAAAAAoAAAAPAAAAAAABAAoAAAADAAAAAAACAAoAAAADAAAAAAADAAoAAAADAAAAAAAEAAoAAAADAAAAAAAFAAoAAAADAAAAAAAGAAoAAAADAAAAAAAHAAoAAAADAAAAAAAIAAoAAAADAAAAAAAJAAoAAAADAAAAAAAKAAoAAAAOAAAAAAALAAoAAAAOAAAAAAAMAAoAAAAOAAAAAAANAAoAAAAOAAAAAAAOAAoAAAAOAAAAAAAPAAoAAAAOAAAAAAAQAAoAAAAOAAAAAAARAAoAAAAOAAAAAAASAAoAAAAOAAAAAAATAAoAAAAPAAAAAAAAAAsAAAAPAAAAAAABAAsAAAAOAAAAAAACAAsAAAAOAAAAAAADAAsAAAAPAAAAAAAEAAsAAAAOAAAAAAAFAAsAAAAOAAAAAAAGAAsAAAAOAAAAAAAHAAsAAAAPAAAAAAAIAAsAAAAOAAAAAAAJAAsAAAAOAAAAAAAKAAsAAAAOAAAAAAALAAsAAAAPAAAAAAAMAAsAAAAOAAAAAAANAAsAAAAOAAAAAAAOAAsAAAAOAAAAAAAPAAsAAAAPAAAAAAAQAAsAAAAOAAAAAAARAAsAAAAOAAAAAAASAAsAAAAOAAAAAAATAAsAAAAPAAAAAAAAAAwAAAAPAAAAAAABAAwAAAAPAAAAAAACAAwAAAAPAAAAAAADAAwAAAAPAAAAAAAEAAwAAAAPAAAAAAAFAAwAAAAPAAAAAAAGAAwAAAAPAAAAAAAHAAwAAAAPAAAAAAAIAAwAAAAPAAAAAAAJAAwAAAAPAAAAAAAKAAwAAAAPAAAAAAALAAwAAAAPAAAAAAAMAAwAAAAPAAAAAAANAAwAAAAPAAAAAAAOAAwAAAAPAAAAAAAPAAwAAAAPAAAAAAAQAAwAAAAPAAAAAAARAAwAAAAPAAAAAAASAAwAAAAPAAAAAAATAAwAAAAPAAAAAAA=")
+tile_set = ExtResource("2_dpomy")
+
+[node name="Letreros" type="Node2D" parent="Mundo" unique_id=2047136336]
+
+[node name="Dosel" type="Label" parent="Mundo/Letreros" unique_id=1311017710]
+offset_left = 44.0
+offset_top = 36.0
+offset_right = 45.0
+offset_bottom = 48.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbrj6")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "DOSEL"
+
+[node name="Muelle" type="Label" parent="Mundo/Letreros" unique_id=1472427982]
+offset_left = 56.0
+offset_top = 66.0
+offset_right = 57.0
+offset_bottom = 78.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_43gs4")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "MUELLE"
+
+[node name="Campamento" type="Label" parent="Mundo/Letreros" unique_id=1176226339]
+offset_left = 198.0
+offset_top = 2.0
+offset_right = 199.0
+offset_bottom = 14.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vnoi1")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "CAMPAMENTO"
+
+[node name="Playa" type="Label" parent="Mundo/Letreros" unique_id=565469830]
+offset_left = 222.0
+offset_top = 146.0
+offset_right = 223.0
+offset_bottom = 158.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7mxnl")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "PLAYA"
+
+[node name="Zonas" type="Node2D" parent="Mundo" unique_id=442851347]
+
+[node name="ZonaDosel" type="Area2D" parent="Mundo/Zonas" unique_id=1657620118]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_w52fa")
+habitat = "dosel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Zonas/ZonaDosel" unique_id=2057295195]
+position = Vector2(80, 48)
+shape = SubResource("RectangleShape2D_q7gjn")
+
+[node name="ZonaRio" type="Area2D" parent="Mundo/Zonas" unique_id=1298754153]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_w52fa")
+habitat = "rio"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Zonas/ZonaRio" unique_id=231747937]
+position = Vector2(88, 96)
+shape = SubResource("RectangleShape2D_ybly2")
+
+[node name="ZonaPlaya" type="Area2D" parent="Mundo/Zonas" unique_id=253549724]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_w52fa")
+habitat = "playa"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Zonas/ZonaPlaya" unique_id=2087978618]
+position = Vector2(240, 144)
+shape = SubResource("RectangleShape2D_d0d27")
+
+[node name="Jaulas" type="Node2D" parent="Mundo" unique_id=1797723618]
+
+[node name="JaulaChuruco" type="Node2D" parent="Mundo/Jaulas" unique_id=1626867795 instance=ExtResource("4_yf0td")]
+position = Vector2(216, 40)
+script = ExtResource("5_b4s4t")
+especie_id = "churuco"
+
+[node name="JaulaDelfin" type="Node2D" parent="Mundo/Jaulas" unique_id=297825676 instance=ExtResource("4_yf0td")]
+position = Vector2(248, 24)
+script = ExtResource("5_b4s4t")
+especie_id = "delfin"
+
+[node name="JaulaCharapa" type="Node2D" parent="Mundo/Jaulas" unique_id=1708653467 instance=ExtResource("4_yf0td")]
+position = Vector2(264, 56)
+script = ExtResource("5_b4s4t")
+especie_id = "charapa"
+
+[node name="Animales" type="Node2D" parent="Mundo" unique_id=283436211]
+
+[node name="Traficantes" type="Node2D" parent="Mundo" unique_id=480775541]
+
+[node name="Traficante1" type="CharacterBody2D" parent="Mundo/Traficantes" unique_id=955484198 instance=ExtResource("6_a7wlj")]
+position = Vector2(184, 72)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("7_474oh")
+SPEED_PATRULLA = 22.0
+SPEED_PERSECUCION = 40.0
+ruta = PackedVector2Array(184, 72, 248, 72)
+ALCANCE_VISION = 34.0
+ANGULO_VISION = 28.0
+TIEMPO_PERSECUCION = 2.0
+
+[node name="Traficante2" type="CharacterBody2D" parent="Mundo/Traficantes" unique_id=177700959 instance=ExtResource("6_a7wlj")]
+position = Vector2(40, 88)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("7_474oh")
+SPEED_PATRULLA = 20.0
+SPEED_PERSECUCION = 40.0
+ruta = PackedVector2Array(40, 88, 152, 88)
+ALCANCE_VISION = 34.0
+ANGULO_VISION = 28.0
+TIEMPO_PERSECUCION = 2.0
+
+[node name="Traficante3" type="CharacterBody2D" parent="Mundo/Traficantes" unique_id=1999561218 instance=ExtResource("6_a7wlj")]
+position = Vector2(152, 24)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("7_474oh")
+SPEED_PATRULLA = 20.0
+SPEED_PERSECUCION = 40.0
+ruta = PackedVector2Array(152, 24, 152, 72)
+ALCANCE_VISION = 34.0
+ANGULO_VISION = 28.0
+TIEMPO_PERSECUCION = 2.0
+
+[node name="PuntoInicio" type="Marker2D" parent="Mundo" unique_id=1248034742]
+position = Vector2(280, 168)
+
+[node name="Player" type="CharacterBody2D" parent="Mundo" unique_id=33912844 instance=ExtResource("8_ybwn3")]
+position = Vector2(280, 168)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("9_iuer1")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=100300318 instance=ExtResource("10_0mbcs")]
+layer = 10
+script = ExtResource("11_8etow")
+textura_corazon = SubResource("AtlasTexture_8glcj")
+textura_corazon_vacio = SubResource("AtlasTexture_vsu76")
+
+[node name="Ficha" type="CanvasLayer" parent="." unique_id=9375367 instance=ExtResource("13_ct4s2")]
+process_mode = 3
+layer = 20
+script = ExtResource("14_dmejq")
+
+[node name="Guia" type="CanvasLayer" parent="." unique_id=1517483198 instance=ExtResource("15_t1jn2")]
+process_mode = 3
+layer = 20
+script = ExtResource("16_4wka0")
+
+[node name="PreguntaFinal" type="CanvasLayer" parent="." unique_id=1601259665 instance=ExtResource("17_2xx56")]
+process_mode = 3
+layer = 20
+script = ExtResource("18_naoa8")
+opciones = PackedStringArray("Los compro para probarlos", "No los compro: así nacen menos charapas. Lo denuncio", "Compro solo unos pocos")
+explicaciones = PackedStringArray("Cada huevo comprado es una charapa que no nace. Así la especie llegó a estar en peligro crítico.", "¡Correcto! Si nadie los compra, dejan de sacarlos de las playas. Denunciarlo ayuda a protegerlas.", "Aunque sean pocos, se suman a los de muchas personas. Lo mejor es no comprar y denunciar.")
+contexto = "En el mercado de Leticia, un vendedor te ofrece:"
+frase = "\"¡Huevos de tortuga charapa, recién sacados de la playa!\""
+sprite_animal = 8
+
+[node name="Derrota" type="CanvasLayer" parent="." unique_id=1153444478 instance=ExtResource("19_m7yju")]
+process_mode = 3
+layer = 20
+script = ExtResource("20_c5t4c")
+
+[node name="Pausa" type="CanvasLayer" parent="." unique_id=959686678 instance=ExtResource("21_w52fa")]
+process_mode = 3
+layer = 30
+script = ExtResource("22_yf0td")
+controles = "Mover: WASD o flechas
+Abrir jaula: E o Espacio
+Guía de campo: G o Tab"

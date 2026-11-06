@@ -1,0 +1,50 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Audio/sonido.gd" id="1_bvtu8"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/paso.wav" id="2_0y6ub"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/click.wav" id="3_g0kkr"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/blip.wav" id="4_rswph"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/acierto.wav" id="5_noqux"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/error.wav" id="6_dwnr8"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/dano.wav" id="7_mbcp6"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/victoria.wav" id="8_s18as"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/jaula.wav" id="9_8rim0"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/alerta.wav" id="10_banjp"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/llave.wav" id="11_iv1tu"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/musica.wav" id="12_l04vs"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/musica_noche.wav" id="13_4yk2d"]
+
+[node name="Sonido" type="Node" unique_id=236178510]
+script = ExtResource("1_bvtu8")
+efectos = Dictionary[String, AudioStream]({
+"acierto": ExtResource("5_noqux"),
+"alerta": ExtResource("10_banjp"),
+"blip": ExtResource("4_rswph"),
+"click": ExtResource("3_g0kkr"),
+"dano": ExtResource("7_mbcp6"),
+"error": ExtResource("6_dwnr8"),
+"jaula": ExtResource("9_8rim0"),
+"llave": ExtResource("11_iv1tu"),
+"paso": ExtResource("2_0y6ub"),
+"victoria": ExtResource("8_s18as")
+})
+musicas = Dictionary[String, AudioStream]({
+"musica": ExtResource("12_l04vs"),
+"musica_noche": ExtResource("13_4yk2d")
+})
+
+[node name="Musica" type="AudioStreamPlayer" parent="." unique_id=1739658450]
+
+[node name="Efectos" type="Node" parent="." unique_id=322216935]
+
+[node name="Canal1" type="AudioStreamPlayer" parent="Efectos" unique_id=2146661776]
+
+[node name="Canal2" type="AudioStreamPlayer" parent="Efectos" unique_id=1928835539]
+
+[node name="Canal3" type="AudioStreamPlayer" parent="Efectos" unique_id=1480258486]
+
+[node name="Canal4" type="AudioStreamPlayer" parent="Efectos" unique_id=410714582]
+
+[node name="Canal5" type="AudioStreamPlayer" parent="Efectos" unique_id=172912785]
+
+[node name="Canal6" type="AudioStreamPlayer" parent="Efectos" unique_id=534249431]

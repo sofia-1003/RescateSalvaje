@@ -1,0 +1,142 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/traficante.gd" id="1_yyamv"]
+[ext_resource type="Texture2D" path="res://Assets/traficante.png" id="2_23hth"]
+[ext_resource type="Shader" path="res://Assets/Shaders/cono_vision.gdshader" id="2_opk0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opk0h"]
+size = Vector2(8, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnhj0"]
+shader = ExtResource("2_opk0h")
+shader_parameter/alcance = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnhj0"]
+atlas = ExtResource("2_23hth")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8qo7"]
+atlas = ExtResource("2_23hth")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llc7n"]
+atlas = ExtResource("2_23hth")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2huuc"]
+atlas = ExtResource("2_23hth")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2yhq"]
+atlas = ExtResource("2_23hth")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4466d"]
+atlas = ExtResource("2_23hth")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_api8m"]
+atlas = ExtResource("2_23hth")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7sca"]
+atlas = ExtResource("2_23hth")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_56l2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnhj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8qo7")
+}],
+"loop": 1,
+"name": &"walk_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llc7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2huuc")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2yhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4466d")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_api8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7sca")
+}],
+"loop": 1,
+"name": &"walk_up",
+"speed": 6.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_yyamv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_23hth"]
+gradient = SubResource("Gradient_yyamv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Traficante" type="CharacterBody2D" unique_id=955484198]
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_yyamv")
+ruta = PackedVector2Array()
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673054293]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_opk0h")
+
+[node name="ConoVision" type="Polygon2D" parent="." unique_id=1711499299]
+material = SubResource("ShaderMaterial_hnhj0")
+color = Color(1, 0.3, 0.3, 0.16)
+polygon = PackedVector2Array(0, 0, 37.680996, -26.384518, 41.256145, -20.34528, 43.87098, -13.832466, 45.46463, -6.997676, 46, 0, 45.46463, 6.997676, 43.87098, 13.832466, 41.256145, 20.34528, 37.680996, 26.384518)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=944343134]
+sprite_frames = SubResource("SpriteFrames_56l2m")
+animation = &"walk_right"
+
+[node name="Alerta" type="Label" parent="." unique_id=52368929]
+offset_left = -3.0
+offset_top = -24.0
+offset_right = -3.0
+offset_bottom = -24.0
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.1882353, 0.1882353, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "!"
+
+[node name="LineaVista" type="RayCast2D" parent="." unique_id=502510557]
+target_position = Vector2(46, 0)
+
+[node name="Linterna" type="PointLight2D" parent="." unique_id=2011483271]
+visible = false
+color = Color(1, 0.9, 0.5, 1)
+energy = 1.1
+texture = SubResource("GradientTexture2D_23hth")
+texture_scale = 0.6

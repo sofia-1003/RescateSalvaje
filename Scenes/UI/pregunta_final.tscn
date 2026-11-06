@@ -1,0 +1,138 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/pregunta_final.gd" id="1_jp1tx"]
+[ext_resource type="Texture2D" path="res://Assets/animales.png" id="2_gc2ya"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/SilvestrePixel-Bold.ttf" id="3_gc2ya"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s263n"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srdcy"]
+bg_color = Color(0.5411765, 0.3529412, 0.16470589, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22745098, 0.22745098, 0.22745098, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bq7s3"]
+atlas = ExtResource("2_gc2ya")
+region = Rect2(48, 0, 16, 16)
+
+[node name="PreguntaFinal" type="CanvasLayer" unique_id=1601259665]
+process_mode = 3
+layer = 20
+script = ExtResource("1_jp1tx")
+opciones = PackedStringArray("Lo compro para cuidarlo en casa", "No lo compro y lo denuncio", "Lo compro y lo suelto en el parque")
+explicaciones = PackedStringArray("Comprarlo le paga a los traficantes, y el loro sufre lejos de su hábitat.", "¡Correcto! Denunciar ante la autoridad ambiental ayuda a frenar el tráfico de fauna.", "Igual le pagas a los traficantes, y un loro no sobrevive en cualquier lugar.")
+
+[node name="Sombra" type="ColorRect" parent="." unique_id=1605167079]
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="Panel" type="Panel" parent="." unique_id=1504935142]
+offset_left = 12.0
+offset_top = 40.0
+offset_right = 308.0
+offset_bottom = 232.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s263n")
+
+[node name="JaulaLoro" type="Panel" parent="Panel" unique_id=1850643230]
+layout_mode = 0
+offset_left = 246.0
+offset_top = 8.0
+offset_right = 286.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_srdcy")
+
+[node name="Imagen" type="TextureRect" parent="Panel/JaulaLoro" unique_id=135640655]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 36.0
+offset_bottom = 36.0
+texture = SubResource("AtlasTexture_bq7s3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Contenido" type="VBoxContainer" parent="Panel" unique_id=1038720680]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 242.0
+offset_bottom = 186.0
+theme_override_constants/separation = 3
+
+[node name="Titulo" type="Label" parent="Panel/Contenido" unique_id=1307564207]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gc2ya")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.4862745, 0.9882353, 0, 1)
+text = "¡Rescataste a todos los animales!"
+autowrap_mode = 3
+
+[node name="Contexto" type="Label" parent="Panel/Contenido" unique_id=739593463]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Ya de vuelta en el pueblo, un vendedor te dice:"
+autowrap_mode = 3
+
+[node name="Frase" type="Label" parent="Panel/Contenido" unique_id=433720564]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.9411765, 0.8156863, 0.1254902, 1)
+text = "\"¡Lleva este loro, es barato!\""
+autowrap_mode = 3
+
+[node name="Pregunta" type="Label" parent="Panel/Contenido" unique_id=2008498068]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gc2ya")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "¿Qué haces?"
+autowrap_mode = 3
+
+[node name="Opciones" type="VBoxContainer" parent="Panel/Contenido" unique_id=1340661889]
+layout_mode = 2
+
+[node name="Opcion1" type="Label" parent="Panel/Contenido/Opciones" unique_id=2070308267]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+text = "Opción"
+autowrap_mode = 3
+
+[node name="Opcion2" type="Label" parent="Panel/Contenido/Opciones" unique_id=728673619]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+text = "Opción"
+autowrap_mode = 3
+
+[node name="Opcion3" type="Label" parent="Panel/Contenido/Opciones" unique_id=1861162625]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.6666667, 0.6666667, 0.6666667, 1)
+text = "Opción"
+autowrap_mode = 3
+
+[node name="Retro" type="Label" parent="Panel/Contenido" unique_id=617673479]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+autowrap_mode = 3
+
+[node name="Pie" type="Label" parent="Panel/Contenido" unique_id=1435302285]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.53333336, 0.53333336, 0.53333336, 1)
+text = "Flechas: elegir    ENTER: responder"
+autowrap_mode = 3

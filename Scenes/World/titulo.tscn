@@ -1,0 +1,153 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://Scripts/World/titulo.gd" id="1_c654k"]
+[ext_resource type="TileSet" path="res://Assets/tileset.tres" id="2_lyggu"]
+[ext_resource type="Shader" path="res://Assets/Shaders/fondo_titulo.gdshader" id="2_prvsb"]
+[ext_resource type="Texture2D" path="res://Assets/animales.png" id="3_prvsb"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/SilvestrePixel-Bold.ttf" id="4_prvsb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhavs"]
+shader = ExtResource("2_prvsb")
+shader_parameter/color_arriba = null
+shader_parameter/color_abajo = null
+shader_parameter/color_luz = null
+shader_parameter/velocidad = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhavs"]
+bg_color = Color(0, 0, 0, 0.5)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8784314, 0.65882355, 0.2509804, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw56k"]
+atlas = ExtResource("3_prvsb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up4y0"]
+atlas = ExtResource("3_prvsb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41jad"]
+atlas = ExtResource("3_prvsb")
+region = Rect2(32, 0, 16, 16)
+
+[node name="Titulo" type="Control" unique_id=1984814597]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 240.0
+script = ExtResource("1_c654k")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=1277467406]
+material = SubResource("ShaderMaterial_mhavs")
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0.05490196, 0.16470589, 0.078431375, 1)
+
+[node name="Borde" type="TileMapLayer" parent="." unique_id=1990339335]
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAAAAAAAAA4AAAACAAAAAAABAAAAAAACAAAAAAABAA4AAAACAAAAAAACAAAAAAACAAAAAAACAA4AAAACAAAAAAADAAAAAAACAAAAAAADAA4AAAACAAAAAAAEAAAAAAACAAAAAAAEAA4AAAACAAAAAAAFAAAAAAACAAAAAAAFAA4AAAACAAAAAAAGAAAAAAACAAAAAAAGAA4AAAACAAAAAAAHAAAAAAACAAAAAAAHAA4AAAACAAAAAAAIAAAAAAACAAAAAAAIAA4AAAACAAAAAAAJAAAAAAACAAAAAAAJAA4AAAACAAAAAAAKAAAAAAACAAAAAAAKAA4AAAACAAAAAAALAAAAAAACAAAAAAALAA4AAAACAAAAAAAMAAAAAAACAAAAAAAMAA4AAAACAAAAAAANAAAAAAACAAAAAAANAA4AAAACAAAAAAAOAAAAAAACAAAAAAAOAA4AAAACAAAAAAAPAAAAAAACAAAAAAAPAA4AAAACAAAAAAAQAAAAAAACAAAAAAAQAA4AAAACAAAAAAARAAAAAAACAAAAAAARAA4AAAACAAAAAAASAAAAAAACAAAAAAASAA4AAAACAAAAAAATAAAAAAACAAAAAAATAA4AAAACAAAAAAA=")
+tile_set = ExtResource("2_lyggu")
+
+[node name="MarcoTitulo" type="Panel" parent="." unique_id=423418019]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 26.0
+offset_right = 290.0
+offset_bottom = 102.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mhavs")
+
+[node name="LabelTitulo" type="Label" parent="." unique_id=1290534447]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 320.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("4_prvsb")
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.8784314, 0.65882355, 0.2509804, 1)
+theme_override_colors/font_outline_color = Color(0.3529412, 0.1882353, 0.0627451, 1)
+theme_override_constants/outline_size = 4
+text = "RESCATE"
+horizontal_alignment = 1
+
+[node name="LabelSubtitulo" type="Label" parent="." unique_id=1715392863]
+layout_mode = 0
+offset_top = 66.0
+offset_right = 320.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("4_prvsb")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.4862745, 0.84705883, 0.3764706, 1)
+text = "SALVAJE"
+horizontal_alignment = 1
+
+[node name="Animales" type="HBoxContainer" parent="." unique_id=794329221]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 110.0
+offset_right = 236.0
+offset_bottom = 154.0
+theme_override_constants/separation = 12
+
+[node name="Guacamaya" type="TextureRect" parent="Animales" unique_id=1240543805]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = SubResource("AtlasTexture_fw56k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Oso" type="TextureRect" parent="Animales" unique_id=113168025]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = SubResource("AtlasTexture_up4y0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Tortuga" type="TextureRect" parent="Animales" unique_id=39076637]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = SubResource("AtlasTexture_41jad")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LabelLema" type="Label" parent="." unique_id=1344150093]
+layout_mode = 0
+offset_top = 158.0
+offset_right = 320.0
+offset_bottom = 181.0
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Un juego sobre especies en peligro"
+horizontal_alignment = 1
+
+[node name="LabelEnter" type="Label" parent="." unique_id=378768497]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 320.0
+offset_bottom = 199.0
+theme_override_fonts/font = ExtResource("4_prvsb")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.9411765, 0.8156863, 0.1254902, 1)
+text = "PRESIONA ENTER"
+horizontal_alignment = 1
+
+[node name="LabelControles" type="Label" parent="." unique_id=49408610]
+layout_mode = 0
+offset_top = 198.0
+offset_right = 320.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.627451, 0.7529412, 0.627451, 1)
+text = "Mover: WASD / Flechas    Abrir jaula: E    Guía: G"
+horizontal_alignment = 1
+
+[node name="LabelDocente" type="Label" parent="." unique_id=1603323907]
+layout_mode = 0
+offset_top = 210.0
+offset_right = 320.0
+offset_bottom = 233.0
+theme_override_colors/font_color = Color(0.627451, 0.627451, 0.627451, 1)
+text = "[F2] Resultados para el docente"
+horizontal_alignment = 1

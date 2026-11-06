@@ -1,0 +1,292 @@
+[gd_scene format=4]
+
+[ext_resource type="Script" path="res://Scripts/World/juego.gd" id="1_wvppi"]
+[ext_resource type="TileSet" path="res://Assets/tileset.tres" id="2_nb4qr"]
+[ext_resource type="Script" path="res://Scripts/World/zona_habitat.gd" id="3_3spqj"]
+[ext_resource type="PackedScene" path="res://Scenes/Objetos/jaula.tscn" id="4_0g5jr"]
+[ext_resource type="Script" path="res://Scripts/Objetos/jaula.gd" id="5_cfvep"]
+[ext_resource type="PackedScene" path="res://Scenes/Objetos/llave.tscn" id="6_tgcg5"]
+[ext_resource type="Script" path="res://Scripts/Objetos/llave.gd" id="7_ph6jb"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/traficante.tscn" id="8_ns88h"]
+[ext_resource type="Script" path="res://Scripts/Enemies/traficante.gd" id="9_tdv28"]
+[ext_resource type="PackedScene" path="res://Scenes/Player/player.tscn" id="10_oho2a"]
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="11_duumo"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/hud.tscn" id="12_kv4vj"]
+[ext_resource type="Script" path="res://Scripts/UI/hud.gd" id="13_q46er"]
+[ext_resource type="Texture2D" path="res://Assets/ui.png" id="14_27aqk"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/ficha.tscn" id="15_8on4y"]
+[ext_resource type="Script" path="res://Scripts/UI/ficha.gd" id="16_y0deh"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/guia.tscn" id="17_fajmg"]
+[ext_resource type="Script" path="res://Scripts/UI/guia.gd" id="18_hep47"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/pregunta_final.tscn" id="19_i5rib"]
+[ext_resource type="Script" path="res://Scripts/UI/pregunta_final.gd" id="20_wu734"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/derrota.tscn" id="21_7spje"]
+[ext_resource type="Script" path="res://Scripts/UI/derrota.gd" id="22_mhryq"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/pausa.tscn" id="23_3spqj"]
+[ext_resource type="Script" path="res://Scripts/UI/pausa.gd" id="24_0g5jr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cbrj6"]
+bg_color = Color(0, 0, 0, 0.55)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43gs4"]
+bg_color = Color(0, 0, 0, 0.55)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnoi1"]
+bg_color = Color(0, 0, 0, 0.55)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7mxnl"]
+bg_color = Color(0, 0, 0, 0.55)
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvt7p"]
+size = Vector2(112, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhbbc"]
+size = Vector2(112, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frcfv"]
+size = Vector2(128, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8glcj"]
+atlas = ExtResource("14_27aqk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsu76"]
+atlas = ExtResource("14_27aqk")
+region = Rect2(16, 0, 16, 16)
+
+[node name="Nivel2" type="Node2D" unique_id=979033290]
+script = ExtResource("1_wvppi")
+nivel = 2
+siguiente_escena = "res://Scenes/World/nivel_3.tscn"
+mensaje_inicio = "NIVEL 2: LOS LLANOS. Las jaulas tienen candado: busca las 3 LLAVES en el mapa. El río solo se cruza por los puentes."
+
+[node name="Mundo" type="Node2D" parent="." unique_id=49454178]
+position = Vector2(0, 32)
+
+[node name="Suelo" type="TileMapLayer" parent="Mundo" unique_id=1810005901]
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAAGAAAAAAACAAAAAAAHAAAAAAACAAAAAAAIAAAAAAACAAAAAAAJAAAAAAAJAAAAAAAKAAAAAAAJAAAAAAALAAAAAAACAAAAAAAMAAAAAAACAAAAAAANAAAAAAACAAAAAAAOAAAAAAACAAAAAAAPAAAAAAACAAAAAAAQAAAAAAACAAAAAAARAAAAAAACAAAAAAASAAAAAAACAAAAAAATAAAAAAACAAAAAAAAAAEAAAACAAAAAAABAAEAAAALAAAAAAACAAEAAAALAAAAAAADAAEAAAALAAAAAAAEAAEAAAAMAAAAAAAFAAEAAAALAAAAAAAGAAEAAAALAAAAAAAHAAEAAAALAAAAAAAIAAEAAAAIAAAAAAAJAAEAAAAJAAAAAAAKAAEAAAAJAAAAAAALAAEAAAAIAAAAAAAMAAEAAAACAAAAAAANAAEAAAAAAAAAAAAOAAEAAAACAAAAAAAPAAEAAAAAAAAAAAAQAAEAAAAAAAAAAAARAAEAAAACAAAAAAASAAEAAAAAAAAAAAATAAEAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAALAAAAAAACAAIAAAALAAAAAAADAAIAAAALAAAAAAAEAAIAAAALAAAAAAAFAAIAAAALAAAAAAAGAAIAAAALAAAAAAAHAAIAAAALAAAAAAAIAAIAAAAIAAAAAAAJAAIAAAAJAAAAAAAKAAIAAAAJAAAAAAALAAIAAAAIAAAAAAAMAAIAAAAAAAAAAAANAAIAAAAAAAAAAAAOAAIAAAAAAAAAAAAPAAIAAAACAAAAAAAQAAIAAAAAAAAAAAARAAIAAAAAAAAAAAASAAIAAAAAAAAAAAATAAIAAAACAAAAAAAAAAMAAAACAAAAAAABAAMAAAALAAAAAAACAAMAAAAMAAAAAAADAAMAAAALAAAAAAAEAAMAAAALAAAAAAAFAAMAAAALAAAAAAAGAAMAAAALAAAAAAAHAAMAAAADAAAAAAAIAAMAAAADAAAAAAAJAAMAAAANAAAAAAAKAAMAAAANAAAAAAALAAMAAAADAAAAAAAMAAMAAAADAAAAAAANAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAARAAMAAAACAAAAAAASAAMAAAAAAAAAAAATAAMAAAACAAAAAAAAAAQAAAACAAAAAAABAAQAAAALAAAAAAACAAQAAAALAAAAAAADAAQAAAALAAAAAAAEAAQAAAALAAAAAAAFAAQAAAAMAAAAAAAGAAQAAAALAAAAAAAHAAQAAAALAAAAAAAIAAQAAAAIAAAAAAAJAAQAAAAJAAAAAAAKAAQAAAAJAAAAAAALAAQAAAAIAAAAAAAMAAQAAAAAAAAAAAANAAQAAAACAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAACAAAAAAAAAAUAAAACAAAAAAABAAUAAAALAAAAAAACAAUAAAALAAAAAAADAAUAAAALAAAAAAAEAAUAAAALAAAAAAAFAAUAAAALAAAAAAAGAAUAAAALAAAAAAAHAAUAAAALAAAAAAAIAAUAAAAIAAAAAAAJAAUAAAAJAAAAAAAKAAUAAAAJAAAAAAALAAUAAAAIAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAAUAAAACAAAAAAARAAUAAAAAAAAAAAASAAUAAAAAAAAAAAATAAUAAAACAAAAAAAAAAYAAAACAAAAAAABAAYAAAALAAAAAAACAAYAAAALAAAAAAADAAYAAAAMAAAAAAAEAAYAAAALAAAAAAAFAAYAAAALAAAAAAAGAAYAAAALAAAAAAAHAAYAAAALAAAAAAAIAAYAAAAIAAAAAAAJAAYAAAAJAAAAAAAKAAYAAAAJAAAAAAALAAYAAAAIAAAAAAAMAAYAAAACAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAARAAYAAAAAAAAAAAASAAYAAAAAAAAAAAATAAYAAAACAAAAAAAAAAcAAAACAAAAAAABAAcAAAALAAAAAAACAAcAAAALAAAAAAADAAcAAAALAAAAAAAEAAcAAAALAAAAAAAFAAcAAAALAAAAAAAGAAcAAAALAAAAAAAHAAcAAAADAAAAAAAIAAcAAAADAAAAAAAJAAcAAAANAAAAAAAKAAcAAAANAAAAAAALAAcAAAADAAAAAAAMAAcAAAADAAAAAAANAAcAAAADAAAAAAAOAAcAAAADAAAAAAAPAAcAAAADAAAAAAAQAAcAAAAAAAAAAAARAAcAAAAAAAAAAAASAAcAAAAAAAAAAAATAAcAAAACAAAAAAAAAAgAAAACAAAAAAABAAgAAAAHAAAAAAACAAgAAAAHAAAAAAADAAgAAAAHAAAAAAAEAAgAAAAHAAAAAAAFAAgAAAADAAAAAAAGAAgAAAALAAAAAAAHAAgAAAALAAAAAAAIAAgAAAAIAAAAAAAJAAgAAAAJAAAAAAAKAAgAAAAJAAAAAAALAAgAAAAIAAAAAAAMAAgAAAALAAAAAAANAAgAAAALAAAAAAAOAAgAAAALAAAAAAAPAAgAAAALAAAAAAAQAAgAAAALAAAAAAARAAgAAAALAAAAAAASAAgAAAALAAAAAAATAAgAAAACAAAAAAAAAAkAAAACAAAAAAABAAkAAAAHAAAAAAACAAkAAAAHAAAAAAADAAkAAAAHAAAAAAAEAAkAAAAHAAAAAAAFAAkAAAADAAAAAAAGAAkAAAALAAAAAAAHAAkAAAAIAAAAAAAIAAkAAAAIAAAAAAAJAAkAAAAJAAAAAAAKAAkAAAAJAAAAAAALAAkAAAAIAAAAAAAMAAkAAAAIAAAAAAANAAkAAAALAAAAAAAOAAkAAAALAAAAAAAPAAkAAAALAAAAAAAQAAkAAAALAAAAAAARAAkAAAALAAAAAAASAAkAAAALAAAAAAATAAkAAAACAAAAAAAAAAoAAAACAAAAAAABAAoAAAAHAAAAAAACAAoAAAAHAAAAAAADAAoAAAAHAAAAAAAEAAoAAAAHAAAAAAAFAAoAAAADAAAAAAAGAAoAAAAIAAAAAAAHAAoAAAAIAAAAAAAIAAoAAAAJAAAAAAAJAAoAAAAJAAAAAAAKAAoAAAAJAAAAAAALAAoAAAAJAAAAAAAMAAoAAAAIAAAAAAANAAoAAAAIAAAAAAAOAAoAAAALAAAAAAAPAAoAAAALAAAAAAAQAAoAAAALAAAAAAARAAoAAAALAAAAAAASAAoAAAALAAAAAAATAAoAAAACAAAAAAAAAAsAAAACAAAAAAABAAsAAAAHAAAAAAACAAsAAAAHAAAAAAADAAsAAAAHAAAAAAAEAAsAAAAHAAAAAAAFAAsAAAADAAAAAAAGAAsAAAAIAAAAAAAHAAsAAAAJAAAAAAAIAAsAAAAJAAAAAAAJAAsAAAAJAAAAAAAKAAsAAAAJAAAAAAALAAsAAAAJAAAAAAAMAAsAAAAJAAAAAAANAAsAAAAIAAAAAAAOAAsAAAALAAAAAAAPAAsAAAALAAAAAAAQAAsAAAALAAAAAAARAAsAAAALAAAAAAASAAsAAAALAAAAAAATAAsAAAACAAAAAAAAAAwAAAACAAAAAAABAAwAAAACAAAAAAACAAwAAAACAAAAAAADAAwAAAACAAAAAAAEAAwAAAACAAAAAAAFAAwAAAACAAAAAAAGAAwAAAACAAAAAAAHAAwAAAACAAAAAAAIAAwAAAACAAAAAAAJAAwAAAACAAAAAAAKAAwAAAACAAAAAAALAAwAAAACAAAAAAAMAAwAAAACAAAAAAANAAwAAAACAAAAAAAOAAwAAAACAAAAAAAPAAwAAAACAAAAAAAQAAwAAAACAAAAAAARAAwAAAACAAAAAAASAAwAAAACAAAAAAATAAwAAAACAAAAAAA=")
+tile_set = ExtResource("2_nb4qr")
+
+[node name="Letreros" type="Node2D" parent="Mundo" unique_id=2047136336]
+
+[node name="Sabana" type="Label" parent="Mundo/Letreros" unique_id=1311017710]
+offset_left = 44.0
+offset_top = 92.0
+offset_right = 45.0
+offset_bottom = 104.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cbrj6")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "SABANA"
+
+[node name="Bosque" type="Label" parent="Mundo/Letreros" unique_id=1472427982]
+offset_left = 228.0
+offset_top = 76.0
+offset_right = 229.0
+offset_bottom = 88.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_43gs4")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "BOSQUE"
+
+[node name="Campamento" type="Label" parent="Mundo/Letreros" unique_id=1176226339]
+offset_left = 12.0
+offset_top = 115.0
+offset_right = 13.0
+offset_bottom = 127.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_vnoi1")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "CAMPAMENTO"
+
+[node name="Cienaga" type="Label" parent="Mundo/Letreros" unique_id=565469830]
+offset_left = 138.0
+offset_top = 176.0
+offset_right = 139.0
+offset_bottom = 188.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_7mxnl")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "CIÉNAGA"
+
+[node name="Zonas" type="Node2D" parent="Mundo" unique_id=442851347]
+
+[node name="ZonaSabana" type="Area2D" parent="Mundo/Zonas" unique_id=1657620118]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_3spqj")
+habitat = "sabana"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Zonas/ZonaSabana" unique_id=2057295195]
+position = Vector2(72, 64)
+shape = SubResource("RectangleShape2D_fvt7p")
+
+[node name="ZonaBosque" type="Area2D" parent="Mundo/Zonas" unique_id=1298754153]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_3spqj")
+habitat = "bosque"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Zonas/ZonaBosque" unique_id=231747937]
+position = Vector2(248, 56)
+shape = SubResource("RectangleShape2D_jhbbc")
+
+[node name="ZonaCienaga" type="Area2D" parent="Mundo/Zonas" unique_id=253549724]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_3spqj")
+habitat = "cienaga"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mundo/Zonas/ZonaCienaga" unique_id=2087978618]
+position = Vector2(160, 168)
+shape = SubResource("RectangleShape2D_frcfv")
+
+[node name="Jaulas" type="Node2D" parent="Mundo" unique_id=1797723618]
+
+[node name="JaulaOsoPalmero" type="Node2D" parent="Mundo/Jaulas" unique_id=1626867795 instance=ExtResource("4_0g5jr")]
+position = Vector2(40, 152)
+script = ExtResource("5_cfvep")
+especie_id = "oso_palmero"
+necesita_llave = true
+
+[node name="JaulaJaguar" type="Node2D" parent="Mundo/Jaulas" unique_id=297825676 instance=ExtResource("4_0g5jr")]
+position = Vector2(72, 168)
+script = ExtResource("5_cfvep")
+especie_id = "jaguar"
+necesita_llave = true
+
+[node name="JaulaManati" type="Node2D" parent="Mundo/Jaulas" unique_id=1708653467 instance=ExtResource("4_0g5jr")]
+position = Vector2(40, 184)
+script = ExtResource("5_cfvep")
+especie_id = "manati"
+necesita_llave = true
+
+[node name="Llaves" type="Node2D" parent="Mundo" unique_id=978015118]
+
+[node name="Llave1" type="Area2D" parent="Mundo/Llaves" unique_id=1335884763 instance=ExtResource("6_tgcg5")]
+position = Vector2(264, 136)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("7_ph6jb")
+
+[node name="Llave2" type="Area2D" parent="Mundo/Llaves" unique_id=1873846025 instance=ExtResource("6_tgcg5")]
+position = Vector2(40, 24)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("7_ph6jb")
+
+[node name="Llave3" type="Area2D" parent="Mundo/Llaves" unique_id=964899697 instance=ExtResource("6_tgcg5")]
+position = Vector2(296, 40)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("7_ph6jb")
+
+[node name="Animales" type="Node2D" parent="Mundo" unique_id=283436211]
+
+[node name="Traficantes" type="Node2D" parent="Mundo" unique_id=480775541]
+
+[node name="Traficante1" type="CharacterBody2D" parent="Mundo/Traficantes" unique_id=955484198 instance=ExtResource("8_ns88h")]
+position = Vector2(184, 120)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("9_tdv28")
+SPEED_PATRULLA = 24.0
+SPEED_PERSECUCION = 40.0
+ruta = PackedVector2Array(184, 120, 248, 120)
+ALCANCE_VISION = 34.0
+ANGULO_VISION = 28.0
+TIEMPO_PERSECUCION = 2.0
+
+[node name="Traficante2" type="CharacterBody2D" parent="Mundo/Traficantes" unique_id=177700959 instance=ExtResource("8_ns88h")]
+position = Vector2(88, 56)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("9_tdv28")
+SPEED_PATRULLA = 24.0
+SPEED_PERSECUCION = 40.0
+ruta = PackedVector2Array(88, 56, 216, 56)
+ALCANCE_VISION = 34.0
+ANGULO_VISION = 28.0
+TIEMPO_PERSECUCION = 2.0
+
+[node name="Traficante3" type="CharacterBody2D" parent="Mundo/Traficantes" unique_id=1999561218 instance=ExtResource("8_ns88h")]
+position = Vector2(104, 152)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("9_tdv28")
+SPEED_PATRULLA = 20.0
+SPEED_PERSECUCION = 40.0
+ruta = PackedVector2Array(104, 152, 104, 184)
+ALCANCE_VISION = 34.0
+ANGULO_VISION = 28.0
+TIEMPO_PERSECUCION = 2.0
+
+[node name="Traficante4" type="CharacterBody2D" parent="Mundo/Traficantes" unique_id=1543259077 instance=ExtResource("8_ns88h")]
+position = Vector2(56, 40)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("9_tdv28")
+SPEED_PATRULLA = 22.0
+SPEED_PERSECUCION = 40.0
+ruta = PackedVector2Array(56, 40, 104, 40, 104, 88, 56, 88)
+ALCANCE_VISION = 34.0
+ANGULO_VISION = 28.0
+TIEMPO_PERSECUCION = 2.0
+
+[node name="PuntoInicio" type="Marker2D" parent="Mundo" unique_id=1248034742]
+position = Vector2(264, 168)
+
+[node name="Player" type="CharacterBody2D" parent="Mundo" unique_id=33912844 instance=ExtResource("10_oho2a")]
+position = Vector2(264, 168)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("11_duumo")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=100300318 instance=ExtResource("12_kv4vj")]
+layer = 10
+script = ExtResource("13_q46er")
+textura_corazon = SubResource("AtlasTexture_8glcj")
+textura_corazon_vacio = SubResource("AtlasTexture_vsu76")
+
+[node name="Ficha" type="CanvasLayer" parent="." unique_id=9375367 instance=ExtResource("15_8on4y")]
+process_mode = 3
+layer = 20
+script = ExtResource("16_y0deh")
+
+[node name="Guia" type="CanvasLayer" parent="." unique_id=1517483198 instance=ExtResource("17_fajmg")]
+process_mode = 3
+layer = 20
+script = ExtResource("18_hep47")
+
+[node name="PreguntaFinal" type="CanvasLayer" parent="." unique_id=1601259665 instance=ExtResource("19_i5rib")]
+process_mode = 3
+layer = 20
+script = ExtResource("20_wu734")
+opciones = PackedStringArray("Lo compro, es un buen recuerdo", "No lo compro: los productos de fauna silvestre alimentan la caza ilegal", "Lo compro solo si es barato")
+explicaciones = PackedStringArray("Comprarlo hace que cacen más jaguares para vender sus partes.", "¡Correcto! Si nadie compra, la caza ilegal deja de ser negocio. También puedes denunciarlo.", "El precio no importa: cualquier compra le paga al cazador ilegal.")
+contexto = "En el mercado del pueblo, un vendedor te ofrece:"
+frase = "\"¡Un collar hecho con colmillos de jaguar!\""
+sprite_animal = 5
+
+[node name="Derrota" type="CanvasLayer" parent="." unique_id=1153444478 instance=ExtResource("21_7spje")]
+process_mode = 3
+layer = 20
+script = ExtResource("22_mhryq")
+
+[node name="Pausa" type="CanvasLayer" parent="." unique_id=959686678 instance=ExtResource("23_3spqj")]
+process_mode = 3
+layer = 30
+script = ExtResource("24_0g5jr")
+controles = "Mover: WASD o flechas
+Abrir jaula: E o Espacio
+Guía de campo: G o Tab"

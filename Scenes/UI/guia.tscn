@@ -1,0 +1,158 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/guia.gd" id="1_dfyiu"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/SilvestrePixel-Bold.ttf" id="2_lbibr"]
+[ext_resource type="Texture2D" path="res://Assets/animales.png" id="2_xkhrm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbibr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhgsi"]
+atlas = ExtResource("2_xkhrm")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h27iq"]
+atlas = ExtResource("2_xkhrm")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phn77"]
+atlas = ExtResource("2_xkhrm")
+region = Rect2(32, 16, 16, 16)
+
+[node name="Guia" type="CanvasLayer" unique_id=1517483198]
+process_mode = 3
+layer = 20
+script = ExtResource("1_dfyiu")
+
+[node name="Sombra" type="ColorRect" parent="." unique_id=506119954]
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="Panel" type="Panel" parent="." unique_id=1420428787]
+offset_left = 16.0
+offset_top = 36.0
+offset_right = 304.0
+offset_bottom = 234.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lbibr")
+
+[node name="Titulo" type="Label" parent="Panel" unique_id=1508546428]
+layout_mode = 0
+offset_top = 4.0
+offset_right = 288.0
+offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("2_lbibr")
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.9411765, 0.8156863, 0.1254902, 1)
+text = "GUÍA DE CAMPO"
+horizontal_alignment = 1
+
+[node name="Entradas" type="VBoxContainer" parent="Panel" unique_id=409874534]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 26.0
+offset_right = 278.0
+offset_bottom = 176.0
+theme_override_constants/separation = 6
+
+[node name="Entrada1" type="HBoxContainer" parent="Panel/Entradas" unique_id=126778543]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Imagen" type="TextureRect" parent="Panel/Entradas/Entrada1" unique_id=110615235]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = SubResource("AtlasTexture_hhgsi")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Textos" type="VBoxContainer" parent="Panel/Entradas/Entrada1" unique_id=1189192114]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Nombre" type="Label" parent="Panel/Entradas/Entrada1/Textos" unique_id=954236932]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "???"
+autowrap_mode = 3
+
+[node name="Detalle" type="Label" parent="Panel/Entradas/Entrada1/Textos" unique_id=941123891]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.73333335, 0.73333335, 0.73333335, 1)
+text = "Pista:"
+autowrap_mode = 3
+
+[node name="Entrada2" type="HBoxContainer" parent="Panel/Entradas" unique_id=1982921901]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Imagen" type="TextureRect" parent="Panel/Entradas/Entrada2" unique_id=625576776]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = SubResource("AtlasTexture_h27iq")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Textos" type="VBoxContainer" parent="Panel/Entradas/Entrada2" unique_id=1119424440]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Nombre" type="Label" parent="Panel/Entradas/Entrada2/Textos" unique_id=973511472]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "???"
+autowrap_mode = 3
+
+[node name="Detalle" type="Label" parent="Panel/Entradas/Entrada2/Textos" unique_id=514285476]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.73333335, 0.73333335, 0.73333335, 1)
+text = "Pista:"
+autowrap_mode = 3
+
+[node name="Entrada3" type="HBoxContainer" parent="Panel/Entradas" unique_id=1696065250]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Imagen" type="TextureRect" parent="Panel/Entradas/Entrada3" unique_id=1097107477]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = SubResource("AtlasTexture_phn77")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Textos" type="VBoxContainer" parent="Panel/Entradas/Entrada3" unique_id=1517151149]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Nombre" type="Label" parent="Panel/Entradas/Entrada3/Textos" unique_id=1983921929]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "???"
+autowrap_mode = 3
+
+[node name="Detalle" type="Label" parent="Panel/Entradas/Entrada3/Textos" unique_id=1321951512]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.73333335, 0.73333335, 0.73333335, 1)
+text = "Pista:"
+autowrap_mode = 3
+
+[node name="Pie" type="Label" parent="Panel" unique_id=603925530]
+layout_mode = 0
+offset_top = 182.0
+offset_right = 288.0
+offset_bottom = 205.0
+theme_override_font_sizes/font_size = 8
+theme_override_colors/font_color = Color(0.73333335, 0.73333335, 0.73333335, 1)
+text = "[G] cerrar"
+horizontal_alignment = 1

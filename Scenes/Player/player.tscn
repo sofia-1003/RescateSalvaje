@@ -1,0 +1,124 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_a3d8c"]
+[ext_resource type="Shader" path="res://Assets/Shaders/golpe.gdshader" id="2_mtuoh"]
+[ext_resource type="Texture2D" path="res://Assets/player.png" id="2_xpcdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtuoh"]
+size = Vector2(8, 6)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_htcer"]
+shader = ExtResource("2_mtuoh")
+shader_parameter/destello = null
+shader_parameter/color_destello = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htcer"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd0ac"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u5uq"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlvik"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk6dx"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhyir"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74mp2"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oikmp"]
+atlas = ExtResource("2_xpcdj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06tpx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htcer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd0ac")
+}],
+"loop": 1,
+"name": &"walk_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u5uq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlvik")
+}],
+"loop": 1,
+"name": &"walk_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk6dx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhyir")
+}],
+"loop": 1,
+"name": &"walk_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74mp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oikmp")
+}],
+"loop": 1,
+"name": &"walk_up",
+"speed": 6.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_a3d8c"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xpcdj"]
+gradient = SubResource("Gradient_a3d8c")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Player" type="CharacterBody2D" unique_id=33912844]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_a3d8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341910705]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_mtuoh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=291536580]
+material = SubResource("ShaderMaterial_htcer")
+sprite_frames = SubResource("SpriteFrames_06tpx")
+animation = &"walk_down"
+
+[node name="Linterna" type="PointLight2D" parent="." unique_id=1426477063]
+visible = false
+color = Color(1, 0.95, 0.8, 1)
+energy = 1.1
+texture = SubResource("GradientTexture2D_xpcdj")
+texture_scale = 1.25

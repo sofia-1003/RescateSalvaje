@@ -1,0 +1,266 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/World/comparacion.gd" id="1_3fkbr"]
+[ext_resource type="Shader" path="res://Assets/Shaders/fondo_titulo.gdshader" id="2_t6ttx"]
+[ext_resource type="FontFile" path="res://Assets/Fonts/SilvestrePixel-Bold.ttf" id="3_ay2b6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qp7je"]
+shader = ExtResource("2_t6ttx")
+shader_parameter/color_arriba = null
+shader_parameter/color_abajo = null
+shader_parameter/color_luz = null
+shader_parameter/velocidad = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8jco"]
+bg_color = Color(0.95686275, 0.9254902, 0.8156863, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+
+[node name="Comparacion" type="Control" unique_id=1166017380]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 240.0
+script = ExtResource("1_3fkbr")
+
+[node name="Fondo" type="ColorRect" parent="." unique_id=440238567]
+material = SubResource("ShaderMaterial_qp7je")
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 240.0
+
+[node name="Panel" type="Panel" parent="." unique_id=432069547]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 14.0
+offset_right = 296.0
+offset_bottom = 226.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8jco")
+
+[node name="Cabecera" type="ColorRect" parent="Panel" unique_id=27621289]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 270.0
+offset_bottom = 18.0
+color = Color(0.22745098, 0.5411765, 0.17254902, 1)
+
+[node name="Titulo" type="Label" parent="Panel/Cabecera" unique_id=1636838860]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 268.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("3_ay2b6")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "ANTES Y DESPUÉS DE JUGAR"
+horizontal_alignment = 1
+
+[node name="Puntajes" type="HBoxContainer" parent="Panel" unique_id=1536174181]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 24.0
+offset_right = 258.0
+offset_bottom = 38.0
+theme_override_constants/separation = 20
+
+[node name="Inicial" type="Label" parent="Panel/Puntajes" unique_id=106842498]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_ay2b6")
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Inicial"
+
+[node name="Final" type="Label" parent="Panel/Puntajes" unique_id=938742317]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_ay2b6")
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Final"
+
+[node name="Columnas" type="HBoxContainer" parent="Panel" unique_id=327070777]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 44.0
+offset_right = 258.0
+offset_bottom = 56.0
+theme_override_constants/separation = 4
+
+[node name="Tema" type="Label" parent="Panel/Columnas" unique_id=1797146340]
+custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+text = "Tema"
+
+[node name="Antes" type="Label" parent="Panel/Columnas" unique_id=607086633]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+text = "Antes"
+
+[node name="Después" type="Label" parent="Panel/Columnas" unique_id=1938408026]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+text = "Después"
+
+[node name="Filas" type="VBoxContainer" parent="Panel" unique_id=64462910]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 56.0
+offset_right = 258.0
+offset_bottom = 140.0
+theme_override_constants/separation = 1
+
+[node name="Fila1" type="HBoxContainer" parent="Panel/Filas" unique_id=449271817]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Tema" type="Label" parent="Panel/Filas/Fila1" unique_id=1562290823]
+custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Tema"
+
+[node name="Antes" type="Label" parent="Panel/Filas/Fila1" unique_id=321712198]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Antes"
+
+[node name="Despues" type="Label" parent="Panel/Filas/Fila1" unique_id=1789902892]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Despues"
+
+[node name="Fila2" type="HBoxContainer" parent="Panel/Filas" unique_id=920087999]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Tema" type="Label" parent="Panel/Filas/Fila2" unique_id=1362231824]
+custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Tema"
+
+[node name="Antes" type="Label" parent="Panel/Filas/Fila2" unique_id=1759530465]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Antes"
+
+[node name="Despues" type="Label" parent="Panel/Filas/Fila2" unique_id=186524705]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Despues"
+
+[node name="Fila3" type="HBoxContainer" parent="Panel/Filas" unique_id=894559036]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Tema" type="Label" parent="Panel/Filas/Fila3" unique_id=31866228]
+custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Tema"
+
+[node name="Antes" type="Label" parent="Panel/Filas/Fila3" unique_id=1400104676]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Antes"
+
+[node name="Despues" type="Label" parent="Panel/Filas/Fila3" unique_id=792409824]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Despues"
+
+[node name="Fila4" type="HBoxContainer" parent="Panel/Filas" unique_id=592286099]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Tema" type="Label" parent="Panel/Filas/Fila4" unique_id=2800187]
+custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Tema"
+
+[node name="Antes" type="Label" parent="Panel/Filas/Fila4" unique_id=340961654]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Antes"
+
+[node name="Despues" type="Label" parent="Panel/Filas/Fila4" unique_id=1982700758]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Despues"
+
+[node name="Fila5" type="HBoxContainer" parent="Panel/Filas" unique_id=725010542]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Tema" type="Label" parent="Panel/Filas/Fila5" unique_id=892139137]
+custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Tema"
+
+[node name="Antes" type="Label" parent="Panel/Filas/Fila5" unique_id=1194953731]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Antes"
+
+[node name="Despues" type="Label" parent="Panel/Filas/Fila5" unique_id=1408101305]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Despues"
+
+[node name="Fila6" type="HBoxContainer" parent="Panel/Filas" unique_id=1037297538]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Tema" type="Label" parent="Panel/Filas/Fila6" unique_id=1790481864]
+custom_minimum_size = Vector2(136, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Tema"
+
+[node name="Antes" type="Label" parent="Panel/Filas/Fila6" unique_id=801718439]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Antes"
+
+[node name="Despues" type="Label" parent="Panel/Filas/Fila6" unique_id=1733718500]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.22745098, 0.1254902, 0.0627451, 1)
+text = "Despues"
+
+[node name="Mensaje" type="Label" parent="Panel" unique_id=1719493037]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 146.0
+offset_right = 258.0
+offset_bottom = 182.0
+theme_override_colors/font_color = Color(0.22745098, 0.5411765, 0.17254902, 1)
+text = "Mensaje"
+autowrap_mode = 3
+
+[node name="Pie" type="Label" parent="Panel" unique_id=366271140]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 272.0
+offset_bottom = 215.0
+theme_override_colors/font_color = Color(0.41568628, 0.2509804, 0.1254902, 1)
+text = "[ENTER] continuar"
+horizontal_alignment = 1
