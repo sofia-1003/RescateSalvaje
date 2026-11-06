@@ -8,19 +8,6 @@ Incluye introducción en viñetas, 3 niveles, música y efectos de sonido.
 
 **Jugar en línea:** https://rescatesalvaje.vercel.app (computador con teclado)
 
-En la versión web, los resultados se guardan en el navegador de cada equipo. Para recogerlos, pulsa R (o F2) en el
-título y luego E para descargar `resultados.csv`.
-
-## Cómo publicar cambios en la web
-
-1. Abre el proyecto en Godot → **Proyecto → Exportar → Web → Exportar proyecto** y guarda en `web/index.html`.
-2. Haz commit y push: Vercel publica la carpeta `web/` automáticamente.
-
-## Cómo abrirlo
-
-1. Abre Godot 4.7 → **Importar** → selecciona `project.godot` de esta carpeta.
-2. Presiona **F5** para jugar (empieza en `Scenes/World/titulo.tscn`).
-
 ## Controles
 
 | Acción | Teclas |
@@ -99,9 +86,7 @@ Los sonidos se asignan en su Inspector y se usan con `Sonido.reproducir("jaula")
 Flujo completo: título → **evaluación inicial** → introducción → juego → **evaluación final** → comparación antes/después → **encuesta de valoración**.
 
 - Las 6 preguntas y sus opciones están en `Scripts/evaluacion.gd` (las opciones se mezclan al mostrarlas).
-- Al terminar el último nivel y la encuesta, el participante queda guardado como una fila (P01, P02…) en
-  `%APPDATA%\Godot\app_userdata\Rescate Salvaje\resultados.csv`. Se abre en Excel.
-- **F2 en la pantalla de título** abre el panel del docente: participantes, promedios antes y después, ganancia, aciertos por pregunta y valoración.
+
 
 ## Shaders, tipografía y menú de pausa
 
